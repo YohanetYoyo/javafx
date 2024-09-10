@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/todolistjx/StartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/todolistjx/accueil/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/StartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/todolistjx/StartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/todolistjx/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/todolistjx/loginView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,7 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Debug",
     "Application.StartApplication.executor": "Run",
+    "Application.appli.StartApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -48,13 +52,22 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VIGNEZ_Yo\Desktop\Java\JAVAFX\TodoListJX\src\main\resources\appli\todolistjx\accueil" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="appli.accueil" />
+      <recent name="appli" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.StartApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="appli.todolistjx.HelloApplication" />
       <module name="TodoListJX" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="appli.todolistjx.*" />
+          <option name="PATTERN" value="appli.todolistjx.accueil.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -67,7 +80,20 @@
       <module name="TodoListJX" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="appli.todolistjx.*" />
+          <option name="PATTERN" value="appli.todolistjx.accueil.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="appli.StartApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="appli.StartApplication" />
+      <module name="TodoListJX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="appli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,6 +104,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.StartApplication" />
+        <item itemvalue="Application.appli.StartApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -98,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725969370445</updated>
-      <workItem from="1725969371870" duration="1051000" />
+      <workItem from="1725969371870" duration="4259000" />
     </task>
     <servers />
   </component>
