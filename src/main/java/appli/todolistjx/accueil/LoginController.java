@@ -12,15 +12,6 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    protected void afficherEmail(){
-        System.out.println(emailField.getText());
-    }
-    @FXML
-    protected void afficherMdp(){
-        System.out.println(passwordField.getText());
-    }
-
-    @FXML
     protected void connexion() {
         System.out.println("Connexion");
     }
