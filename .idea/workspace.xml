@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/accueil/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/todolistjx/accueil/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/todolistjx/loginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/todolistjx/loginView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/StartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/todolistjx/accueil/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/todolistjx/inscriptionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/inscriptionView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/todolistjx/loginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +32,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -41,26 +45,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Debug",
-    "Application.StartApplication.executor": "Run",
-    "Application.appli.StartApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/VIGNEZ_Yo.LPRS/IdeaProjects/javafx/src/main/resources/appli/todolistjx",
-    "last_opened_file_path": "C:/Users/VIGNEZ_Yo.LPRS/IdeaProjects/javafx/src/main/resources/appli/todolistjx",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.StartApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.appli.StartApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/VIGNEZ_Yo.LPRS/IdeaProjects/javafx/src/main/resources/appli/todolistjx&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/VIGNEZ_Yo/IdeaProjects/javafx&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\VIGNEZ_Yo.LPRS\IdeaProjects\javafx\src\main\resources\appli\todolistjx" />
@@ -73,7 +77,7 @@
       <recent name="appli" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StartApplication">
+  <component name="RunManager" selected="Application.appli.StartApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="appli.todolistjx.HelloApplication" />
       <module name="TodoListJX" />
@@ -115,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StartApplication" />
         <item itemvalue="Application.appli.StartApplication" />
+        <item itemvalue="Application.StartApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -124,7 +128,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-22-openjdk-22-f644763e9732-8c5c9ae5" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -138,6 +143,9 @@
       <updated>1725969370445</updated>
       <workItem from="1725969371870" duration="4259000" />
       <workItem from="1726576055205" duration="2921000" />
+      <workItem from="1727178374947" duration="215000" />
+      <workItem from="1727178624366" duration="375000" />
+      <workItem from="1727179305148" duration="303000" />
     </task>
     <servers />
   </component>

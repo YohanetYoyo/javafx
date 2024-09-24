@@ -1,4 +1,4 @@
-package appli.todolistjx;
+package appli;
 
 import javafx.fxml.FXML;
 

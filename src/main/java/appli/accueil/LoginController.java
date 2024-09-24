@@ -1,5 +1,6 @@
-package appli.todolistjx.accueil;
+package appli.accueil;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -23,8 +24,6 @@ public class LoginController {
     @FXML
     protected void connexion() {
         System.out.println("Connexion");
-        System.out.println(this.emailField.toString());
-        System.out.println(this.passwordField.toString());
     }
     @FXML
     protected void motDePasseOublie() {
@@ -33,5 +32,11 @@ public class LoginController {
     @FXML
     protected void inscription() {
         System.out.println("Inscription");
+    }
+
+    public void setPasswordField(ActionEvent actionEvent) {
+    }
+
+    public void setEmailField(ActionEvent actionEvent) {
     }
 }
