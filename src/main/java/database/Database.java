@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private String serveur = "localhost";
-    private String nomDeLaBase = "javaFX";
-    private String utilisateur = "root";
-    private String motDePasse = "";
+    private String serveur = "localhost:3306";
+    private String nomDeLaBase = "yvi_javafx";
+    private String utilisateur = "yvi_javafx";
+    private String motDePasse = "cheekibreeki";
 
-    public String getUrl(){
+    private String getUrl(){
         return "jdbc:mysql://"+this.serveur+"/"+this.nomDeLaBase+"?serverTimezone=UTC";
     }
 
