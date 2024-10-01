@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/inscriptionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/inscriptionView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +61,8 @@
       <recent name="C:\Users\VIGNEZ_Yo.LPRS\IdeaProjects\javafx\src\main\resources\appli\todolistjx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VIGNEZ_Yo.LPRS\IdeaProjects\javafx\src\main\resources" />
+      <recent name="C:\Users\VIGNEZ_Yo.LPRS\IdeaProjects\javafx\src\main\resources\appli\accueil" />
       <recent name="C:\Users\VIGNEZ_Yo\Desktop\Java\JAVAFX\TodoListJX\src\main\resources\appli\todolistjx\accueil" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -65,7 +70,7 @@
       <recent name="appli" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.appli.StartApplication">
+  <component name="RunManager" selected="Application.appli.accueil.StartApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="appli.todolistjx.HelloApplication" />
       <module name="TodoListJX" />
@@ -92,12 +97,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="appli.StartApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="appli.StartApplication" />
+    <configuration name="appli.accueil.StartApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="appli.accueil.StartApplication" />
       <module name="TodoListJX" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="appli.*" />
+          <option name="PATTERN" value="appli.accueil.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,7 +112,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.appli.StartApplication" />
+        <item itemvalue="Application.appli.accueil.StartApplication" />
         <item itemvalue="Application.StartApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>

@@ -1,10 +1,13 @@
 package appli.accueil;
 
+import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class LoginController {
     @FXML
@@ -15,13 +18,6 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    protected void setEmailField(TextField textField){
-    }
-    @FXML
-    protected void setPasswordField(PasswordField passwordField){
-    }
-
-    @FXML
     protected void connexion() {
         System.out.println("Connexion");
     }
@@ -30,13 +26,13 @@ public class LoginController {
         System.out.println("Mot de passe oublié");
     }
     @FXML
-    protected void inscription() {
-        System.out.println("Inscription");
+    protected void inscription() throws IOException {
+        StartApplication.changeScene("inscriptionView.fxml");
     }
-
-    public void setPasswordField(ActionEvent actionEvent) {
+    @FXML
+    protected void setEmailField(ActionEvent actionEvent) {
     }
-
-    public void setEmailField(ActionEvent actionEvent) {
+    @FXML
+    protected void setPasswordField(ActionEvent actionEvent) {
     }
 }
