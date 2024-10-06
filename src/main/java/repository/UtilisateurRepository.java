@@ -28,7 +28,7 @@ public class UtilisateurRepository {
 
     public Utilisateur getUtilisateurByEmail(String email) throws SQLException {
         Database base = new Database();
-        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur WHERE email = ?"
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, prenom, email, mdp FROM utilisateur WHERE email = ?"
         );
         reqPrepareSelect.setString(1, email);
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();

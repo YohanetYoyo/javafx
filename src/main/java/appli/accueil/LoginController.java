@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.Utilisateur;
+import repository.UtilisateurRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController {
     @FXML
@@ -18,11 +21,29 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    protected void connexion() {
+    protected void connexion() throws SQLException, IOException {
         String email = emailField.getText();
         String password = passwordField.getText();
-        System.out.println("Connexion");
-        System.out.println("Email : " + email + "\nMot de passe : " + password);
+        if (email.isEmpty() || password.isEmpty()) {
+            this.erreur.setText("Veuillez remplir tous les champs.");
+            this.erreur.setVisible(true);
+        } else {
+            UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
+            Utilisateur check = utilisateurRepository.getUtilisateurByEmail(email);
+            if (check != null){
+                if (!password.equals(check.getMdp())){
+                    System.out.println(password);
+                    System.out.println(check.getMdp());
+                    this.erreur.setText("Mot de passe incorrect.");
+                    this.erreur.setVisible(true);
+                } else {
+                    StartApplication.changeScene("accueil/accueilView.fxml");
+                }
+            } else {
+                this.erreur.setText("Utilisateur inexistant.");
+                this.erreur.setVisible(true);
+            }
+        }
     }
     @FXML
     protected void motDePasseOublie() {
