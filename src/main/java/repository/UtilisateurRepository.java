@@ -2,23 +2,25 @@ package repository;
 
 import java.sql.*;
 import database.Database;
+import model.Utilisateur;
 
 public class UtilisateurRepository {
-    public boolean inscription() throws SQLException {
+    public boolean inscription(Utilisateur utilisateur) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareInsert = base.getConnection().prepareStatement(
-                "INSERT INTO Utilisateur (nom, prenom, email, mdp) VALUES (?,?,?,?)"
+                "INSERT INTO utilisateur (nom, prenom, email, mdp) VALUES (?,?,?,?)"
         );
-        requetePrepareInsert.setString(1, "");
-        requetePrepareInsert.setString(2, "");
-        requetePrepareInsert.setString(3,"");
-        requetePrepareInsert.setString(4, "");
+        requetePrepareInsert.setString(1, utilisateur.getNom());
+        requetePrepareInsert.setString(2, utilisateur.getPrenom());
+        requetePrepareInsert.setString(3,utilisateur.getEmail());
+        requetePrepareInsert.setString(4, utilisateur.getMdp());
         requetePrepareInsert.executeUpdate();
-        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM Utilisateur WHERE email = ?"
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur WHERE email = ?"
         );
-        reqPrepareSelect.setString(1, "");
+        reqPrepareSelect.setString(1, utilisateur.getEmail());
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();
-        if (resultatRequete.first()){
+        boolean utilisateurInscrit = resultatRequete.next();
+        if (utilisateurInscrit) {
             return true;
         } else {
             return false;
