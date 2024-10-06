@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import model.Utilisateur;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class InscriptionController {
         String email = this.emailField.getText();
         String password = this.passwordField.getText();
         String confirmePassword = this.confirmePasswordField.getText();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if (nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || password.isEmpty() || confirmePassword.isEmpty()) {
             this.erreur.setText("Veuillez remplir tous les champs.");
             this.erreur.setVisible(true);
@@ -40,7 +42,7 @@ public class InscriptionController {
             if (password.equals(confirmePassword)) {
                 this.erreur.setVisible(false);
                 Utilisateur utilisateur = new Utilisateur(
-                        nom, prenom, email, password
+                        nom, prenom, email, encoder.encode(password)
                 );
                 UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
                 Utilisateur emailCheck = utilisateurRepository.getUtilisateurByEmail(email);

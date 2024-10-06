@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +153,7 @@
       <workItem from="1727178374947" duration="215000" />
       <workItem from="1727178624366" duration="375000" />
       <workItem from="1727179305148" duration="303000" />
-      <workItem from="1728217483814" duration="8407000" />
+      <workItem from="1728217483814" duration="9024000" />
     </task>
     <servers />
   </component>
