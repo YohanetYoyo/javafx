@@ -19,7 +19,10 @@ public class LoginController {
 
     @FXML
     protected void connexion() {
+        String email = emailField.getText();
+        String password = passwordField.getText();
         System.out.println("Connexion");
+        System.out.println("Email : " + email + "\nMot de passe : " + password);
     }
     @FXML
     protected void motDePasseOublie() {
