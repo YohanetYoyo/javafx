@@ -43,18 +43,25 @@ public class InscriptionController {
                         nom, prenom, email, password
                 );
                 UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
-                boolean check = utilisateurRepository.inscription(utilisateur);
-                if (check == true){
-                    this.erreur.setText("Utilisateur bien ajouté !");
+                Utilisateur emailCheck = utilisateurRepository.getUtilisateurByEmail(email);
+                if (emailCheck != null) {
+                    this.erreur.setText("L'adresse e-mail est déjà utilisé !");
                     this.erreur.setVisible(true);
-                    this.nomField.clear();
-                    this.prenomField.clear();
-                    this.emailField.clear();
-                    this.passwordField.clear();
-                    this.confirmePasswordField.clear();
                 } else {
-                    this.erreur.setText("Erreur lors de l'ajout.");
-                    this.erreur.setVisible(true);
+                    this.erreur.setVisible(false);
+                    boolean check = utilisateurRepository.inscription(utilisateur);
+                    if (check == true){
+                        this.erreur.setText("Utilisateur bien ajouté !");
+                        this.erreur.setVisible(true);
+                        this.nomField.clear();
+                        this.prenomField.clear();
+                        this.emailField.clear();
+                        this.passwordField.clear();
+                        this.confirmePasswordField.clear();
+                    } else {
+                        this.erreur.setText("Erreur lors de l'ajout.");
+                        this.erreur.setVisible(true);
+                    }
                 }
             } else {
                 this.erreur.setText("Erreur, les mots de passe ne coïncident pas !");

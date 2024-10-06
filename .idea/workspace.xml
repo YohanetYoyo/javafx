@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/inscriptionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/inscriptionView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +151,7 @@
       <workItem from="1727178374947" duration="215000" />
       <workItem from="1727178624366" duration="375000" />
       <workItem from="1727179305148" duration="303000" />
-      <workItem from="1728217483814" duration="5304000" />
+      <workItem from="1728217483814" duration="6401000" />
     </task>
     <servers />
   </component>

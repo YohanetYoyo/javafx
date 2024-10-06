@@ -19,11 +19,24 @@ public class UtilisateurRepository {
         );
         reqPrepareSelect.setString(1, utilisateur.getEmail());
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();
-        boolean utilisateurInscrit = resultatRequete.next();
-        if (utilisateurInscrit) {
+        if (resultatRequete.next()) {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public Utilisateur getUtilisateurByEmail(String email) throws SQLException {
+        Database base = new Database();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur WHERE email = ?"
+        );
+        reqPrepareSelect.setString(1, email);
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            Utilisateur utilisateur = new Utilisateur(resultatRequete.getString(1), resultatRequete.getString(2), resultatRequete.getString(3), resultatRequete.getString(4));
+            return utilisateur;
+        } else {
+            return null;
         }
     }
 }
