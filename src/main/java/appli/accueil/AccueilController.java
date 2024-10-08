@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Liste;
+import repository.ListeRepository;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +33,7 @@ public class AccueilController implements Initializable {
             //Ajout de la colonne dans notre tableau
             tableauListe.getColumns().add(maColonne);
         }
+        ListeRepository listeRepository = new ListeRepository();
     }
 
     @FXML

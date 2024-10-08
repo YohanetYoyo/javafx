@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/InscriptionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Liste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Liste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/inscriptionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/inscriptionView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ListeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ListeRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
