@@ -1,4 +1,4 @@
-package appli;
+package appli.accueil;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;

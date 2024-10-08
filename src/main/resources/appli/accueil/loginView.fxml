@@ -18,13 +18,13 @@
          <Font size="18.0" />
       </font></Label>
    <Label fx:id="emailText" layoutX="30.0" layoutY="30.0" text="Votre email :" />
-   <TextField fx:id="emailField" onAction="#setEmailField">
+   <TextField fx:id="emailField">
       <font>
          <Font size="10.0" />
       </font>
    </TextField>
    <Label fx:id="passwordText" layoutX="43.0" layoutY="77.0" text="Votre mot de passe :" />
-       <PasswordField fx:id="passwordField" onAction="#setPasswordField">
+       <PasswordField fx:id="passwordField">
       <font>
          <Font size="10.0" />
       </font>

@@ -34,15 +34,18 @@ public class AccueilController implements Initializable {
         }
     }
 
-    public void ajouterListe() {
+    @FXML
+    protected void ajouterListe() throws IOException {
+        StartApplication.changeScene("liste/ajouterListeView.fxml");
+    }
+
+    @FXML
+    protected void lesTypes(){
 
     }
 
-    public void lesTypes(){
-
-    }
-
-    public void deconnexion() throws IOException {
+    @FXML
+    protected void deconnexion() throws IOException {
         StartApplication.changeScene("accueil/loginView.fxml");
     }
 

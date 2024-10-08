@@ -1,7 +1,6 @@
 package appli.accueil;
 
 import appli.StartApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -51,12 +50,6 @@ public class LoginController {
     }
     @FXML
     protected void inscription() throws IOException {
-        StartApplication.changeScene("inscriptionView.fxml");
-    }
-    @FXML
-    protected void setEmailField(ActionEvent actionEvent) {
-    }
-    @FXML
-    protected void setPasswordField(ActionEvent actionEvent) {
+        StartApplication.changeScene("accueil/inscriptionView.fxml");
     }
 }
