@@ -8,7 +8,7 @@ public class UtilisateurRepository {
     public boolean inscription(Utilisateur utilisateur) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareInsert = base.getConnection().prepareStatement(
-                "INSERT INTO utilisateur (nom, prenom, email, mdp) VALUES (?,?,?,?)"
+                "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe) VALUES (?,?,?,?)"
         );
         requetePrepareInsert.setString(1, utilisateur.getNom());
         requetePrepareInsert.setString(2, utilisateur.getPrenom());
@@ -28,7 +28,7 @@ public class UtilisateurRepository {
 
     public Utilisateur getUtilisateurByEmail(String email) throws SQLException {
         Database base = new Database();
-        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, prenom, email, mdp FROM utilisateur WHERE email = ?"
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, prenom, email, mot_de_passe FROM utilisateur WHERE email = ?"
         );
         reqPrepareSelect.setString(1, email);
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();

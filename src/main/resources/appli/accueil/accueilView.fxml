@@ -22,7 +22,7 @@
    <VBox prefHeight="200.0" prefWidth="100.0">
       <children>
          <Label text="Ensemble des listes créées" />
-         <TableView prefHeight="233.0" prefWidth="182.0" />
+         <TableView fx:id="tableauListe" prefHeight="233.0" prefWidth="182.0" />
       </children>
    </VBox>
     <Button onAction="#deconnexion" text="Déconnexion" />
