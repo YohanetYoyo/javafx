@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/liste/EditerListeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/liste/EditerListeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ListeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ListeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/appli/liste/editerListeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/liste/editerListeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

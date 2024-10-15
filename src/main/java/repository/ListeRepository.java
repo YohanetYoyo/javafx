@@ -54,7 +54,7 @@ public class ListeRepository {
     public boolean editer(Liste liste) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareEdit = base.getConnection().prepareStatement(
-                "UPDATE liste SET nom = ? WHERE id = ?"
+                "UPDATE liste SET nom = ? WHERE id_liste = ?"
         );
         requetePrepareEdit.setString(1, liste.getNom());
         requetePrepareEdit.setInt(2, liste.getIdListe());

@@ -16,9 +16,14 @@
           <Font size="18.0" />
         </font>
     </Label>
+    <Label fx:id="idListe">
+        <font>
+            <Font name="System Bold" />
+        </font>
+    </Label>
     <Label text="Nom" />
     <TextField fx:id="nomField" />
-   <Label fx:id ="erreur" layoutX="91.0" layoutY="77.0" text="Erreur" textFill="RED" visible="false" />
-    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Editer la liste" />
-    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Retour" />
+   <Label fx:id="erreur" layoutX="91.0" layoutY="77.0" text="Erreur" textFill="RED" visible="false" />
+    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" onAction="#editer" text="Editer la liste" />
+    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
 </VBox>

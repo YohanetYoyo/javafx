@@ -2,6 +2,7 @@ package appli.liste;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Liste;
@@ -11,21 +12,29 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class EditerListeController {
+
+    private Liste listeSel;
+
     @FXML
     private Label erreur;
-    private int id;
+    @FXML
+    private Label idListe;
     @FXML
     private TextField nomField;
 
     public EditerListeController(Liste listeSel) {
-        this.id = listeSel.getIdListe();
-        this.nomField.setText(listeSel.getNom());
+        this.listeSel = listeSel;
     }
 
+    @FXML
+    public void initialize() {
+        this.idListe.setText("Id. liste : " + this.listeSel.getIdListe());
+        this.nomField.setText(this.listeSel.getNom());
+    }
 
     @FXML
     protected void editer() throws SQLException {
-        int id = this.id;
+        int id = this.listeSel.getIdListe();
         String nom = this.nomField.getText();
         if (nom.isEmpty()) {
             this.erreur.setText("Veuillez remplir tous les champs.");
