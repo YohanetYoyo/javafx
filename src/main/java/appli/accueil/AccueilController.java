@@ -62,7 +62,7 @@ public class AccueilController implements Initializable {
 
     @FXML
     protected void suppression() {
-        
+
     }
 
     @FXML

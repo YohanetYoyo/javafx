@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.liste.AjouterListeController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <Label text="Ajouter une liste">
+    <Label text="Editer la liste">
         <font>
           <Font size="18.0" />
         </font>
@@ -19,6 +19,6 @@
     <Label text="Nom" />
     <TextField fx:id="nomField" />
    <Label fx:id ="erreur" layoutX="91.0" layoutY="77.0" text="Erreur" textFill="RED" visible="false" />
-    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter la liste" />
-    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Ajouter la liste" />
+    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Retour" />
 </VBox>

@@ -10,7 +10,7 @@ import repository.ListeRepository;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class ajouterListeController {
+public class EditerListeController {
     @FXML
     private Label erreur;
     @FXML
