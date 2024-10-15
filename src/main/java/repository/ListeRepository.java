@@ -44,15 +44,10 @@ public class ListeRepository {
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM liste"
         );
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();
-        if (resultatRequete.next()) {
-            ArrayList<Liste> arrayList = new ArrayList<Liste>();
+            ArrayList<Liste> resultats = new ArrayList<Liste>();
             while (resultatRequete.next()){
-                Liste liste = new Liste(resultatRequete.getInt(1), resultatRequete.getString(2));
-                arrayList.add(liste);
+                resultats.add(new Liste(resultatRequete.getInt(1), resultatRequete.getString(2)));
             }
-            return arrayList;
-        } else {
-            return null;
-        }
+            return resultats;
     }
 }

@@ -2,6 +2,7 @@ module appli.todolistjx {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires javafx.base;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -10,7 +11,7 @@ module appli.todolistjx {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires spring.security.crypto;
-
+    opens model to javafx.base;
     opens appli to javafx.fxml;
     exports appli;
     exports appli.accueil;

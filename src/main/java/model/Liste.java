@@ -15,9 +15,8 @@ public class Liste {
 
     @Override
     public String toString() {
-        return "Liste{" +
-                "idListe=" + idListe +
-                ", nom='" + nom + '\'' +
+        return "{id_liste : " + idListe +
+                ", nom : '" + nom + '\'' +
                 '}';
     }
 

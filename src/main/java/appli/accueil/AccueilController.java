@@ -1,6 +1,7 @@
 package appli.accueil;
 
 import appli.StartApplication;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -11,6 +12,8 @@ import repository.ListeRepository;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AccueilController implements Initializable {
@@ -34,6 +37,14 @@ public class AccueilController implements Initializable {
             tableauListe.getColumns().add(maColonne);
         }
         ListeRepository listeRepository = new ListeRepository();
+        ArrayList<Liste> listes;
+        try {
+            listes = listeRepository.getListes();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ObservableList<Liste> observableList = tableauListe.getItems();
+        observableList.setAll(listes);
     }
 
     @FXML
