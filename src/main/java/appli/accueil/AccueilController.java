@@ -1,6 +1,7 @@
 package appli.accueil;
 
 import appli.StartApplication;
+import appli.liste.EditerListeController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -78,6 +79,7 @@ public class AccueilController implements Initializable {
             TableColumn colonne = cell.getTableColumn();
             Liste listeSel = tableauListe.getItems().get(indexLigne);
             System.out.println("Double-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
+            StartApplication.changeScene("editerListe",new EditerListeController(listeSel));
         } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
             TablePosition cell = tableauListe.getSelectionModel().getSelectedCells().get(0);
             int indexLigne = cell.getRow();

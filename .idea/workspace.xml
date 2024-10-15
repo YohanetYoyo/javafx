@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/liste/EditerListeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/liste/EditerListeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ListeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ListeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/liste/editerListeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/liste/editerListeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +157,7 @@
       <workItem from="1727178624366" duration="375000" />
       <workItem from="1727179305148" duration="303000" />
       <workItem from="1728217483814" duration="9024000" />
-      <workItem from="1728992470457" duration="4686000" />
+      <workItem from="1728992470457" duration="6051000" />
     </task>
     <servers />
   </component>

@@ -50,4 +50,23 @@ public class ListeRepository {
             }
             return resultats;
     }
+
+    public boolean editer(Liste liste) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareEdit = base.getConnection().prepareStatement(
+                "UPDATE liste SET nom = ? WHERE id = ?"
+        );
+        requetePrepareEdit.setString(1, liste.getNom());
+        requetePrepareEdit.setInt(2, liste.getIdListe());
+        requetePrepareEdit.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom FROM liste WHERE nom = ?"
+        );
+        reqPrepareSelect.setString(1, liste.getNom());
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -19,6 +19,6 @@
     <Label text="Nom" />
     <TextField fx:id="nomField" />
    <Label fx:id ="erreur" layoutX="91.0" layoutY="77.0" text="Erreur" textFill="RED" visible="false" />
-    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Ajouter la liste" />
+    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Editer la liste" />
     <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" text="Retour" />
 </VBox>
