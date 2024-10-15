@@ -69,4 +69,21 @@ public class ListeRepository {
             return false;
         }
     }
+
+    public boolean supprimer(Liste liste) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareDelete = base.getConnection().prepareStatement(
+                "DELETE FROM liste WHERE id_liste = ?"
+        );
+        requetePrepareDelete.setInt(1, liste.getIdListe());
+        requetePrepareDelete.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM liste WHERE id_liste = ?");
+        reqPrepareSelect.setInt(1, liste.getIdListe());
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (!resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

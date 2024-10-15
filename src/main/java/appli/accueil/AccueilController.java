@@ -5,9 +5,7 @@ import appli.liste.EditerListeController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +22,12 @@ public class AccueilController implements Initializable {
 
     @FXML
     private TableView<Liste> tableauListe;
+    @FXML
+    private Button supprimer;
+    @FXML
+    private Label erreur;
+
+    private Liste listeSel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,7 +67,34 @@ public class AccueilController implements Initializable {
 
     @FXML
     protected void suppression() {
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer cette liste");
+        alert.setHeaderText("Êtes-vous sûr de vouloir supprimer cette liste ?");
+        alert.setContentText("Cette action est irréversible !");
+        alert.showAndWait().ifPresent(reponse -> {
+            if (reponse == ButtonType.OK) {
+                ListeRepository listeRepository = new ListeRepository();
+                boolean check = false;
+                try {
+                    check = listeRepository.supprimer(this.listeSel);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                if (check == true){
+                    this.erreur.setText("Liste supprimée !");
+                    this.erreur.setVisible(true);
+                    this.supprimer.setDisable(true);
+                    try {
+                        StartApplication.changeScene("accueil/accueilView.fxml");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    this.erreur.setText("Erreur lors de la suppression.");
+                    this.erreur.setVisible(true);
+                }
+            }
+        });
     }
 
     @FXML
@@ -85,7 +116,9 @@ public class AccueilController implements Initializable {
             int indexLigne = cell.getRow();
             TableColumn colonne = cell.getTableColumn();
             Liste listeSel = tableauListe.getItems().get(indexLigne);
+            this.listeSel = listeSel;
             System.out.println("Simple-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
+            this.supprimer.setDisable(false);
         }
     }
 }
