@@ -5,8 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import model.Liste;
 import repository.ListeRepository;
 
@@ -58,8 +61,29 @@ public class AccueilController implements Initializable {
     }
 
     @FXML
+    protected void suppression() {
+        
+    }
+
+    @FXML
     protected void deconnexion() throws IOException {
         StartApplication.changeScene("accueil/loginView.fxml");
     }
 
+    @FXML
+    protected void onListeSelection(MouseEvent event) {
+        if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+            TablePosition cell = tableauListe.getSelectionModel().getSelectedCells().get(0);
+            int indexLigne = cell.getRow();
+            TableColumn colonne = cell.getTableColumn();
+            Liste listeSel = tableauListe.getItems().get(indexLigne);
+            System.out.println("Double-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
+        } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
+            TablePosition cell = tableauListe.getSelectionModel().getSelectedCells().get(0);
+            int indexLigne = cell.getRow();
+            TableColumn colonne = cell.getTableColumn();
+            Liste listeSel = tableauListe.getItems().get(indexLigne);
+            System.out.println("Simple-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
+        }
+    }
 }
