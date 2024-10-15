@@ -1,6 +1,7 @@
 package model;
 
 public class Utilisateur {
+    private int idUtilisateur;
     private String nom;
     private String prenom;
     private String email;
@@ -13,11 +14,27 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
+    public Utilisateur(int idUtilisateur, String nom, String prenom, String email, String mdp) {
+        this.idUtilisateur = idUtilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+    }
+
     public String toString(){
         return "Nom : "+this.nom+"\n"+
                 "Prénom : "+this.prenom+"\n"+
                 "E-mail : "+this.email+"\n"+
                 "Mot de passe : "+this.mdp+"\n";
+    }
+
+    public int getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public String getNom() {
