@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Utilisateur;
+import model.UtilisateurConnecte;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 
@@ -36,6 +37,7 @@ public class LoginController {
                     this.erreur.setText("Mot de passe incorrect.");
                     this.erreur.setVisible(true);
                 } else {
+                    UtilisateurConnecte.initInstance(check);
                     StartApplication.changeScene("accueil/accueilView.fxml");
                 }
             } else {

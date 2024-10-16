@@ -28,12 +28,12 @@ public class UtilisateurRepository {
 
     public Utilisateur getUtilisateurByEmail(String email) throws SQLException {
         Database base = new Database();
-        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, prenom, email, mot_de_passe FROM utilisateur WHERE email = ?"
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur WHERE email = ?"
         );
         reqPrepareSelect.setString(1, email);
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();
         if (resultatRequete.next()) {
-            Utilisateur utilisateur = new Utilisateur(resultatRequete.getString(1), resultatRequete.getString(2), resultatRequete.getString(3), resultatRequete.getString(4));
+            Utilisateur utilisateur = new Utilisateur(resultatRequete.getInt(1),resultatRequete.getString(2), resultatRequete.getString(3), resultatRequete.getString(4), resultatRequete.getString(5));
             return utilisateur;
         } else {
             return null;

@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import model.Liste;
+import model.UtilisateurConnecte;
 import repository.ListeRepository;
 
 import java.io.IOException;
@@ -26,11 +27,14 @@ public class AccueilController implements Initializable {
     private Button supprimer;
     @FXML
     private Label erreur;
+    @FXML
+    private Label welcomeText;
 
     private Liste listeSel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.welcomeText.setText("Bienvenue, "+UtilisateurConnecte.getInstance().getNom()+" "+UtilisateurConnecte.getInstance().getPrenom()+" !");
         String[][] colonnes = {
                 {"Id. liste", "idListe"},
                 {"Nom", "nom"}
@@ -99,6 +103,7 @@ public class AccueilController implements Initializable {
 
     @FXML
     protected void deconnexion() throws IOException {
+        UtilisateurConnecte.clearInstance();
         StartApplication.changeScene("accueil/loginView.fxml");
     }
 
