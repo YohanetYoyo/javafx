@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92e4a63a-e29b-48a1-8f4b-97c8227ead61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" afterDir="false" />
     </list>
@@ -35,28 +34,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.StartApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.appli.StartApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;D:/JetBrains/Projects/javafx/src/main/java/appli/accueil&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/VIGNEZ_Yo.LPRS/IdeaProjects/javafx/src/main/resources/appli/liste&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Debug",
+    "Application.StartApplication.executor": "Run",
+    "Application.appli.StartApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/JetBrains/Projects/javafx/src/main/java/appli/accueil",
+    "last_opened_file_path": "D:/JetBrains/Projects/javafx/src/main/resources/appli/accueil",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JetBrains\Projects\javafx\src\main\resources\appli\accueil" />
       <recent name="C:\Users\VIGNEZ_Yo.LPRS\IdeaProjects\javafx\src\main\resources\appli\liste" />
       <recent name="C:\Users\VIGNEZ_Yo.LPRS\IdeaProjects\javafx\src\main\resources\appli\todolistjx" />
     </key>
@@ -70,6 +70,7 @@
       <recent name="appli" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="appli.accueil" />
       <recent name="appli.liste" />
     </key>
   </component>
@@ -158,7 +159,8 @@
       <workItem from="1727179305148" duration="303000" />
       <workItem from="1728217483814" duration="9024000" />
       <workItem from="1728992470457" duration="6051000" />
-      <workItem from="1729103692727" duration="612000" />
+      <workItem from="1729103692727" duration="827000" />
+      <workItem from="1729193019315" duration="4492000" />
     </task>
     <servers />
   </component>

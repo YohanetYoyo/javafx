@@ -2,9 +2,7 @@ package appli.accueil;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import model.Utilisateur;
 import model.UtilisateurConnecte;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +10,7 @@ import repository.UtilisateurRepository;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class LoginController {
     @FXML
@@ -47,8 +46,8 @@ public class LoginController {
         }
     }
     @FXML
-    protected void motDePasseOublie() {
-        System.out.println("Mot de passe oublié");
+    protected void motDePasseOublie() throws IOException {
+        StartApplication.changeScene("accueil/passwordForgottenView.fxml");
     }
     @FXML
     protected void inscription() throws IOException {

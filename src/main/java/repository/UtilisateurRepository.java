@@ -26,6 +26,28 @@ public class UtilisateurRepository {
         }
     }
 
+    public boolean modification(Utilisateur utilisateur) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareModif = base.getConnection().prepareStatement(
+              "UPDATE utilisateur SET nom = ?, prenom = ?, email = ?, mot_de_passe = ? WHERE email = ?"
+        );
+        requetePrepareModif.setString(1, utilisateur.getNom());
+        requetePrepareModif.setString(2, utilisateur.getPrenom());
+        requetePrepareModif.setString(3,utilisateur.getEmail());
+        requetePrepareModif.setString(4, utilisateur.getMdp());
+        requetePrepareModif.setString(5, utilisateur.getEmail());
+        requetePrepareModif.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur WHERE email = ?"
+        );
+        reqPrepareSelect.setString(1, utilisateur.getEmail());
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Utilisateur getUtilisateurByEmail(String email) throws SQLException {
         Database base = new Database();
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur WHERE email = ?"
@@ -39,4 +61,5 @@ public class UtilisateurRepository {
             return null;
         }
     }
+
 }
