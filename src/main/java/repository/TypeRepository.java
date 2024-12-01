@@ -1,6 +1,7 @@
 package repository;
 
 import database.Database;
+import model.Liste;
 import model.Type;
 
 import java.sql.PreparedStatement;
@@ -42,6 +43,23 @@ public class TypeRepository {
         reqPrepareSelect.setString(1, type.getNom());
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();
         if (resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean supprimer(Type type) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareDelete = base.getConnection().prepareStatement(
+                "DELETE FROM type WHERE id_type = ?"
+        );
+        requetePrepareDelete.setInt(1, type.getIdType());
+        requetePrepareDelete.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM type WHERE id_type = ?");
+        reqPrepareSelect.setInt(1, type.getIdType());
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (!resultatRequete.next()) {
             return true;
         } else {
             return false;

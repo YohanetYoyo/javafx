@@ -1,7 +1,6 @@
 package appli.type;
 
 import appli.StartApplication;
-import appli.liste.EditerListeController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -77,7 +76,34 @@ public class LesTypesController implements Initializable {
     }
     @FXML
     protected void suppression() {
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer ce type");
+        alert.setHeaderText("Êtes-vous sûr de vouloir supprimer ce type ?");
+        alert.setContentText("Cette action est irréversible !");
+        alert.showAndWait().ifPresent(reponse -> {
+            if (reponse == ButtonType.OK) {
+                TypeRepository typeRepository = new TypeRepository();
+                boolean check = false;
+                try {
+                    check = typeRepository.supprimer(this.typeSel);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                if (check == true){
+                    this.erreur.setText("Type supprimé !");
+                    this.erreur.setVisible(true);
+                    this.supprimer.setDisable(true);
+                    try {
+                        StartApplication.changeScene("type/lesTypesView.fxml");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    this.erreur.setText("Erreur lors de la suppression.");
+                    this.erreur.setVisible(true);
+                }
+            }
+        });
     }
 
     @FXML
