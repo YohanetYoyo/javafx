@@ -29,9 +29,10 @@ public class ModifierInfosController {
 
     @FXML
     public void initialize() {
-        this.nomField.setPromptText(UtilisateurConnecte.getInstance().getNom());
-        this.prenomField.setPromptText(UtilisateurConnecte.getInstance().getPrenom());
-        this.emailField.setPromptText(UtilisateurConnecte.getInstance().getEmail());
+        this.nomField.setText(UtilisateurConnecte.getInstance().getNom());
+        this.prenomField.setText(UtilisateurConnecte.getInstance().getPrenom());
+        this.emailField.setText(UtilisateurConnecte.getInstance().getEmail());
+        this.passwordField.setPromptText(UtilisateurConnecte.getInstance().getMdp());
     }
 
     @FXML
@@ -49,15 +50,6 @@ public class ModifierInfosController {
             Utilisateur utilisateur = new Utilisateur(
                     nom, prenom, email, UtilisateurConnecte.getInstance().getMdp()
             );
-            if (nom.isEmpty()) {
-                utilisateur.setNom(UtilisateurConnecte.getInstance().getNom());
-            }
-            if (prenom.isEmpty()) {
-                utilisateur.setPrenom(UtilisateurConnecte.getInstance().getPrenom());
-            }
-            if (email.isEmpty()) {
-                utilisateur.setEmail(UtilisateurConnecte.getInstance().getEmail());
-            }
             if (!encoder.matches(password, utilisateur.getMdp()) && !password.isEmpty()) {
                 utilisateur.setMdp(encoder.encode(password));
             }
@@ -69,7 +61,7 @@ public class ModifierInfosController {
                 if (check == true){
                     UtilisateurConnecte.clearInstance();
                     UtilisateurConnecte.initInstance(utilisateur);
-                    StartApplication.changeScene("accueil/loginView.fxml");
+                    StartApplication.changeScene("accueil/accueilView.fxml");
                 } else {
                     this.erreur.setText("Erreur lors de la modification.");
                     this.erreur.setVisible(true);
