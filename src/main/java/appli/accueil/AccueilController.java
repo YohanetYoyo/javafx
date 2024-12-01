@@ -65,8 +65,8 @@ public class AccueilController implements Initializable {
     }
 
     @FXML
-    protected void lesTypes(){
-
+    protected void lesTypes() throws IOException {
+        StartApplication.changeScene("type/lesTypesView.fxml");
     }
 
     @FXML

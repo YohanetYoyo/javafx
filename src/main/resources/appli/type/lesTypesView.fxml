@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" fillWidth="false" prefHeight="420.0" prefWidth="550.0" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.type.LesTypesController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+                <Label fx:id="welcomeText" alignment="TOP_LEFT" text="Les types">
+        <font>
+            <Font size="18.0" />
+        </font>
+   </Label>
+   <VBox alignment="CENTER" prefHeight="136.0" prefWidth="500.0">
+      <children>
+         <Label text="Ensemble des types de tâche existants" />
+         <TableView fx:id="tableauType" onMouseClicked="#onTypeSelection" prefHeight="44.0" prefWidth="500.0" />
+         <ButtonBar prefHeight="25.0" prefWidth="290.0">
+           <buttons>
+               <Button onAction="#ajouterType" text="Ajouter un type" />
+                <Button fx:id="supprimer" alignment="CENTER" contentDisplay="CENTER" disable="true" onAction="#suppression" text="Supprimer type" />
+           </buttons>
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+         </ButtonBar>
+      </children>
+   </VBox>
+    <Label fx:id="erreur" layoutX="91.0" layoutY="77.0" text="Erreur" textFill="RED" visible="false" />
+    <Button layoutX="69.0" layoutY="491.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+</VBox>

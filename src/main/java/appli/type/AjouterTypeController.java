@@ -1,43 +1,48 @@
-package appli.liste;
+package appli.type;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.Liste;
-import repository.ListeRepository;
+import javafx.scene.control.ColorPicker;
+import model.Type;
+import repository.TypeRepository;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class AjouterListeController {
+public class AjouterTypeController {
     @FXML
     private Label erreur;
     @FXML
     private TextField nomField;
+    @FXML
+    private ColorPicker couleurField;
 
     @FXML
     protected void ajout() throws SQLException {
         String nom = this.nomField.getText();
-
-        if (nom.isEmpty()) {
+        String couleur = this.couleurField.getValue().toString();
+        System.out.println(this.couleurField.getValue().toString());
+        if (nom.isEmpty() || couleur.isEmpty()) {
             this.erreur.setText("Veuillez remplir tous les champs.");
             this.erreur.setVisible(true);
         } else {
             this.erreur.setVisible(false);
-            Liste liste = new Liste(
-                    nom
+            Type type = new Type(
+                    nom,
+                    "#"+couleur.substring(2, 8)
             );
-            ListeRepository listeRepository = new ListeRepository();
-            Liste nomCheck = listeRepository.getListeByNom(nom);
+            TypeRepository typeRepository = new TypeRepository();
+            Type nomCheck = typeRepository.getTypeByNom(nom);
             if (nomCheck != null) {
-                this.erreur.setText("La liste a déjà été créée !");
+                this.erreur.setText("Le type a déjà été créé !");
                 this.erreur.setVisible(true);
             } else {
                 this.erreur.setVisible(false);
-                boolean check = listeRepository.ajout(liste);
+                boolean check = typeRepository.ajout(type);
                 if (check == true){
-                    this.erreur.setText("Liste créée !");
+                    this.erreur.setText("Type créé !");
                     this.erreur.setVisible(true);
                     this.nomField.clear();
                 } else {
@@ -50,6 +55,6 @@ public class AjouterListeController {
 
     @FXML
     protected void retour() throws IOException {
-        StartApplication.changeScene("accueil/accueilView.fxml");
+        StartApplication.changeScene("type/lesTypesView.fxml");
     }
 }
