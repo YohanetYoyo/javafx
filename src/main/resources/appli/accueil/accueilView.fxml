@@ -43,7 +43,7 @@
       <children>
          <ButtonBar buttonMinWidth="100.0" prefHeight="25.0" prefWidth="201.0">
            <buttons>
-               <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="206.0" text="Modifier mes informations" />
+               <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="206.0" onAction="#modifierInfos" text="Modifier mes informations" />
            </buttons>
          </ButtonBar>
       </children>

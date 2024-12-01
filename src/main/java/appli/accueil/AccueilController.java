@@ -102,6 +102,11 @@ public class AccueilController implements Initializable {
     }
 
     @FXML
+    protected void modifierInfos() throws IOException {
+        StartApplication.changeScene("accueil/modifierInfosView.fxml");
+    }
+
+    @FXML
     protected void deconnexion() throws IOException {
         UtilisateurConnecte.clearInstance();
         StartApplication.changeScene("accueil/loginView.fxml");
