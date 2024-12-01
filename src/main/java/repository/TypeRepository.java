@@ -28,6 +28,26 @@ public class TypeRepository {
         }
     }
 
+    public boolean editer(Type type) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareEdit = base.getConnection().prepareStatement(
+                "UPDATE type SET nom = ?, code_couleur = ? WHERE id_type = ?"
+        );
+        requetePrepareEdit.setString(1, type.getNom());
+        requetePrepareEdit.setString(2, type.getCodeCouleur());
+        requetePrepareEdit.setInt(3, type.getIdType());
+        requetePrepareEdit.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom FROM type WHERE nom = ?"
+        );
+        reqPrepareSelect.setString(1, type.getNom());
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public ArrayList<Type> getTypes() throws SQLException {
         Database base = new Database();
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM type"
@@ -42,7 +62,7 @@ public class TypeRepository {
 
     public Type getTypeByNom(String nom) throws SQLException {
         Database base = new Database();
-        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom FROM type WHERE nom = ?"
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, code_couleur FROM type WHERE nom = ?"
         );
         reqPrepareSelect.setString(1, nom);
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();

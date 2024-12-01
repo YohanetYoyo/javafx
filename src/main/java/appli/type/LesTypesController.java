@@ -1,12 +1,13 @@
 package appli.type;
 
 import appli.StartApplication;
+import appli.liste.EditerListeController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import model.Type;
 import repository.TypeRepository;
@@ -85,6 +86,21 @@ public class LesTypesController implements Initializable {
     }
     @FXML
     protected void onTypeSelection(MouseEvent event) {
-
+        if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+            TablePosition cell = tableauType.getSelectionModel().getSelectedCells().get(0);
+            int indexLigne = cell.getRow();
+            TableColumn colonne = cell.getTableColumn();
+            Type typeSel = tableauType.getItems().get(indexLigne);
+            System.out.println("Double-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + typeSel);
+            StartApplication.changeScene("type/editerTypeView",new EditerTypeController(typeSel));
+        } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
+            TablePosition cell = tableauType.getSelectionModel().getSelectedCells().get(0);
+            int indexLigne = cell.getRow();
+            TableColumn colonne = cell.getTableColumn();
+            Type typeSel = tableauType.getItems().get(indexLigne);
+            this.typeSel = typeSel;
+            System.out.println("Simple-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + typeSel);
+            this.supprimer.setDisable(false);
+        }
     }
 }

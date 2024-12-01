@@ -18,4 +18,6 @@ module appli.todolistjx {
     opens appli.accueil to javafx.fxml;
     exports appli.liste;
     opens appli.liste to javafx.fxml;
+    exports appli.type;
+    opens appli.type to javafx.fxml;
 }

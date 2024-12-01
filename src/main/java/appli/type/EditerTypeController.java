@@ -1,19 +1,19 @@
-package appli.liste;
+package appli.type;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.Liste;
-import repository.ListeRepository;
+import model.Type;
+import repository.TypeRepository;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class EditerListeController {
+public class EditerTypeController {
 
-    private Liste listeSel;
+    private Type typeSel;
 
     @FXML
     private Label erreur;
@@ -21,36 +21,39 @@ public class EditerListeController {
     private Label idListe;
     @FXML
     private TextField nomField;
+    @FXML
+    private ColorPicker couleurField;
 
-    public EditerListeController(Liste listeSel) {
-        this.listeSel = listeSel;
+    public EditerTypeController(Type typeSel) {
+        this.typeSel = typeSel;
     }
 
     @FXML
     public void initialize() {
-        this.idListe.setText("Id. liste : " + this.listeSel.getIdListe());
-        this.nomField.setText(this.listeSel.getNom());
+        this.idListe.setText("Id. type : " + this.typeSel.getIdType());
+        this.nomField.setText(this.typeSel.getNom());
     }
 
     @FXML
     protected void editer() throws SQLException {
-        int id = this.listeSel.getIdListe();
+        int id = this.typeSel.getIdType();
         String nom = this.nomField.getText();
-        if (nom.isEmpty()) {
+        String couleur = this.couleurField.getValue().toString();
+        if (nom.isEmpty() || couleur.isEmpty()) {
             this.erreur.setText("Veuillez remplir tous les champs.");
             this.erreur.setVisible(true);
         } else {
             this.erreur.setVisible(false);
-            Liste liste = new Liste(
-                    id, nom
+            Type type = new Type(
+                    id, nom, "#"+couleur.substring(2, 8)
             );
-            ListeRepository listeRepository = new ListeRepository();
-            Liste nomCheck = listeRepository.getListeByNom(nom);
+            TypeRepository typeRepository = new TypeRepository();
+            Type nomCheck = typeRepository.getTypeByNom(nom);
             if (nomCheck == null) {
                 this.erreur.setVisible(false);
-                boolean check = listeRepository.editer(liste);
+                boolean check = typeRepository.editer(type);
                 if (check == true){
-                    this.erreur.setText("Liste modifiée !");
+                    this.erreur.setText("Type modifié !");
                     this.erreur.setVisible(true);
                     this.nomField.clear();
                 } else {
@@ -59,9 +62,9 @@ public class EditerListeController {
                 }
             } else if (nomCheck.getNom().equals(nom)) {
                 this.erreur.setVisible(false);
-                boolean check = listeRepository.editer(liste);
+                boolean check = typeRepository.editer(type);
                 if (check == true){
-                    this.erreur.setText("Liste modifiée !");
+                    this.erreur.setText("Type modifié !");
                     this.erreur.setVisible(true);
                     this.nomField.clear();
                 } else {
@@ -77,6 +80,6 @@ public class EditerListeController {
 
     @FXML
     protected void retour() throws IOException {
-        StartApplication.changeScene("accueil/accueilView.fxml");
+        StartApplication.changeScene("type/lesTypesView.fxml");
     }
 }
