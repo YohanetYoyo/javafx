@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import model.Type;
 import repository.TypeRepository;
 
@@ -32,6 +33,8 @@ public class EditerTypeController {
     public void initialize() {
         this.idListe.setText("Id. type : " + this.typeSel.getIdType());
         this.nomField.setText(this.typeSel.getNom());
+        Color color = Color.web(this.typeSel.getCodeCouleur());
+        this.couleurField.setValue(color);
     }
 
     @FXML
