@@ -49,18 +49,7 @@ public class EditerTypeController {
             );
             TypeRepository typeRepository = new TypeRepository();
             Type nomCheck = typeRepository.getTypeByNom(nom);
-            if (nomCheck == null) {
-                this.erreur.setVisible(false);
-                boolean check = typeRepository.editer(type);
-                if (check == true){
-                    this.erreur.setText("Type modifié !");
-                    this.erreur.setVisible(true);
-                    this.nomField.clear();
-                } else {
-                    this.erreur.setText("Erreur lors de la modification.");
-                    this.erreur.setVisible(true);
-                }
-            } else if (nomCheck.getNom().equals(nom)) {
+            if (nomCheck == null || nomCheck.getNom().equals(nom)) {
                 this.erreur.setVisible(false);
                 boolean check = typeRepository.editer(type);
                 if (check == true){
