@@ -78,6 +78,19 @@ public class TypeRepository {
             return resultats;
     }
 
+    public Type getTypeById(int id) throws SQLException {
+        Database base = new Database();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, code_couleur FROM type WHERE id_type = ?");
+        reqPrepareSelect.setInt(1, id);
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()){
+            Type type = new Type(resultatRequete.getString(1), resultatRequete.getString(2));
+            return type;
+        } else {
+            return null;
+        }
+    }
+
     public Type getTypeByNom(String nom) throws SQLException {
         Database base = new Database();
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom, code_couleur FROM type WHERE nom = ?"

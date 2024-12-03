@@ -30,6 +30,7 @@
          <ButtonBar prefHeight="25.0" prefWidth="290.0">
            <buttons>
                <Button onAction="#ajouterListe" text="Ajouter une liste" />
+               <Button fx:id="modifier" onAction="#modifierListe" disable="true" text="Modifier liste" />
                 <Button fx:id="supprimer" alignment="CENTER" contentDisplay="CENTER" disable="true" onAction="#suppression" text="Supprimer cette liste" />
            </buttons>
             <VBox.margin>

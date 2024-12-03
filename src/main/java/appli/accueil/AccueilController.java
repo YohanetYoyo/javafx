@@ -2,6 +2,7 @@ package appli.accueil;
 
 import appli.StartApplication;
 import appli.liste.EditerListeController;
+import appli.tache.TachesController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,6 +24,8 @@ public class AccueilController implements Initializable {
 
     @FXML
     private TableView<Liste> tableauListe;
+    @FXML
+    private Button modifier;
     @FXML
     private Button supprimer;
     @FXML
@@ -67,6 +70,11 @@ public class AccueilController implements Initializable {
     @FXML
     protected void lesTypes() throws IOException {
         StartApplication.changeScene("type/lesTypesView.fxml");
+    }
+
+    @FXML
+    protected void modifierListe(){
+        StartApplication.changeScene("liste/editerListeView",new EditerListeController(this.listeSel));
     }
 
     @FXML
@@ -120,7 +128,7 @@ public class AccueilController implements Initializable {
             TableColumn colonne = cell.getTableColumn();
             Liste listeSel = tableauListe.getItems().get(indexLigne);
             System.out.println("Double-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
-            StartApplication.changeScene("liste/editerListeView",new EditerListeController(listeSel));
+            StartApplication.changeScene("tache/tachesView",new TachesController(this.listeSel));
         } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
             TablePosition cell = tableauListe.getSelectionModel().getSelectedCells().get(0);
             int indexLigne = cell.getRow();
@@ -128,6 +136,7 @@ public class AccueilController implements Initializable {
             Liste listeSel = tableauListe.getItems().get(indexLigne);
             this.listeSel = listeSel;
             System.out.println("Simple-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
+            this.modifier.setDisable(false);
             this.supprimer.setDisable(false);
         }
     }

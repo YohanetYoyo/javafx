@@ -20,4 +20,6 @@ module appli.todolistjx {
     opens appli.liste to javafx.fxml;
     exports appli.type;
     opens appli.type to javafx.fxml;
+    exports appli.tache;
+    opens appli.tache to javafx.fxml;
 }
