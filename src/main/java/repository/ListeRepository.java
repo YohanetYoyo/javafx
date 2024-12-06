@@ -27,12 +27,12 @@ public class ListeRepository {
 
     public Liste getListeByNom(String nom) throws SQLException {
         Database base = new Database();
-        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom FROM liste WHERE nom = ?"
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM liste WHERE nom = ?"
         );
         reqPrepareSelect.setString(1, nom);
         ResultSet resultatRequete = reqPrepareSelect.executeQuery();
         if (resultatRequete.next()) {
-            Liste liste = new Liste(resultatRequete.getString(1));
+            Liste liste = new Liste(resultatRequete.getInt(1), resultatRequete.getString(2));
             return liste;
         } else {
             return null;

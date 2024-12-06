@@ -8,14 +8,23 @@ import model.Utilisateur;
 import model.UtilisateurListe;
 
 public class UtilisateurListeRepository {
-    public void ajout(UtilisateurListe utilisateurListe) throws SQLException {
+    public boolean ajout(UtilisateurListe utilisateurListe) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareInsert = base.getConnection().prepareStatement(
-                "INSERT INTO utilisateur_liste VALUES ?, ?"
+                "INSERT INTO utilisateur_liste VALUES (?, ?)"
         );
         requetePrepareInsert.setInt(1, utilisateurListe.getRefUtilisateur());
         requetePrepareInsert.setInt(2, utilisateurListe.getRefListe());
         requetePrepareInsert.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM utilisateur_liste WHERE ref_utilisateur = ? AND ref_liste = ?");
+        reqPrepareSelect.setInt(1, utilisateurListe.getRefUtilisateur());
+        reqPrepareSelect.setInt(2, utilisateurListe.getRefListe());
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public ArrayList<UtilisateurListe> getUtilisateurListes() throws SQLException {
