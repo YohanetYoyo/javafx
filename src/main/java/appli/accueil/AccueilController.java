@@ -3,6 +3,7 @@ package appli.accueil;
 import appli.StartApplication;
 import appli.liste.EditerListeController;
 import appli.tache.TachesController;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import model.Liste;
+import model.Utilisateur;
 import model.UtilisateurConnecte;
 import repository.ListeRepository;
+import repository.UtilisateurListeRepository;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,14 +43,26 @@ public class AccueilController implements Initializable {
         this.welcomeText.setText("Bienvenue, "+UtilisateurConnecte.getInstance().getNom()+" "+UtilisateurConnecte.getInstance().getPrenom()+" !");
         String[][] colonnes = {
                 {"Id. liste", "idListe"},
-                {"Nom", "nom"}
+                {"Nom", "nom"},
+                {"Utilisateur", "refUtilisateur"}
         };
+        UtilisateurListeRepository utilisateurListeRepository = new UtilisateurListeRepository();
         //Parcours de l'ensemble des colonnes
         for (int i = 0 ; i < colonnes.length ; i++){
             //Création de la colonne avec le titre
             TableColumn<Liste,String> maColonne = new TableColumn<>(colonnes[i][0]);
             //Ligne permettant la liaison automatique de la cellule avec la propriété donnée
             maColonne.setCellValueFactory(new PropertyValueFactory<Liste,String>(colonnes[i][1]));
+            if (colonnes[i][1].equals("refUtilisateur")){
+                maColonne.setCellValueFactory(colonne -> {
+                    try {
+                        Utilisateur utilisateur = utilisateurListeRepository.getUtilisateurByRefListe(colonne.getValue().getIdListe());
+                        return new SimpleStringProperty(utilisateur.getNom()+" "+utilisateur.getPrenom());
+                    } catch (SQLException e){
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
             //Ajout de la colonne dans notre tableau
             tableauListe.getColumns().add(maColonne);
         }

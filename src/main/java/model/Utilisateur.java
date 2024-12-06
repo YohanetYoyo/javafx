@@ -22,6 +22,12 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
+    public Utilisateur(int idUtilisateur, String nom, String prenom) {
+        this.idUtilisateur = idUtilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     public String toString(){
         return "Nom : "+this.nom+"\n"+
                 "Prénom : "+this.prenom+"\n"+

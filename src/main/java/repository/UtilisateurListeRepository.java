@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import database.Database;
+import model.Utilisateur;
 import model.UtilisateurListe;
 
 public class UtilisateurListeRepository {
@@ -28,5 +29,20 @@ public class UtilisateurListeRepository {
             resultats.add(new UtilisateurListe(resultatRequete.getInt(1), resultatRequete.getInt(2)));
         }
         return resultats;
+    }
+
+    public Utilisateur getUtilisateurByRefListe(int refListe) throws SQLException{
+        Database base = new Database();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement(
+                "SELECT u.id_utilisateur, u.nom, u.prenom FROM utilisateur_liste as ul INNER JOIN utilisateur as u ON ul.ref_utilisateur = u.id_utilisateur WHERE ul.ref_liste = ?"
+        );
+        reqPrepareSelect.setInt(1, refListe);
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            Utilisateur utilisateur = new Utilisateur(resultatRequete.getInt(1), resultatRequete.getString(2), resultatRequete.getString(3));
+            return utilisateur;
+        } else {
+            return null;
+        }
     }
 }
