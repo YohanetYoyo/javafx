@@ -2,6 +2,7 @@ package appli.type;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -10,9 +11,11 @@ import model.Type;
 import repository.TypeRepository;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class EditerTypeController {
+public class EditerTypeController implements Initializable {
 
     private Type typeSel;
 
@@ -29,8 +32,8 @@ public class EditerTypeController {
         this.typeSel = typeSel;
     }
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         this.idListe.setText("Id. type : " + this.typeSel.getIdType());
         this.nomField.setText(this.typeSel.getNom());
         Color color = Color.web(this.typeSel.getCodeCouleur());
@@ -74,4 +77,5 @@ public class EditerTypeController {
     protected void retour() throws IOException {
         StartApplication.changeScene("type/lesTypesView.fxml");
     }
+
 }

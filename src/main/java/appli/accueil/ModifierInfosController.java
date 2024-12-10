@@ -2,6 +2,7 @@ package appli.accueil;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -12,9 +13,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class ModifierInfosController {
+public class ModifierInfosController implements Initializable {
 
     @FXML
     private TextField nomField;
@@ -27,8 +30,8 @@ public class ModifierInfosController {
     @FXML
     private Label erreur;
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         this.nomField.setText(UtilisateurConnecte.getInstance().getNom());
         this.prenomField.setText(UtilisateurConnecte.getInstance().getPrenom());
         this.emailField.setText(UtilisateurConnecte.getInstance().getEmail());
@@ -77,4 +80,5 @@ public class ModifierInfosController {
     protected void retour() throws IOException {
         StartApplication.changeScene("accueil/accueilView.fxml");
     }
+
 }

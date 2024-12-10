@@ -2,6 +2,7 @@ package appli.liste;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,9 +10,11 @@ import model.Liste;
 import repository.ListeRepository;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class EditerListeController {
+public class EditerListeController implements Initializable {
 
     private Liste listeSel;
 
@@ -26,8 +29,8 @@ public class EditerListeController {
         this.listeSel = listeSel;
     }
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         this.idListe.setText("Id. liste : " + this.listeSel.getIdListe());
         this.nomField.setText(this.listeSel.getNom());
     }
@@ -79,4 +82,5 @@ public class EditerListeController {
     protected void retour() throws IOException {
         StartApplication.changeScene("accueil/accueilView.fxml");
     }
+
 }
