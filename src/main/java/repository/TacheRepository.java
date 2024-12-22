@@ -1,6 +1,7 @@
 package repository;
 
 import database.Database;
+import model.Liste;
 import model.Tache;
 import model.Type;
 
@@ -87,5 +88,21 @@ public class TacheRepository {
             ));
         }
         return resultats;
+    }
+
+    public Tache getTacheByNom(String nom, int idListe) throws SQLException {
+        Database base = new Database();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement(
+                "SELECT * FROM tache WHERE nom = ? AND ref_liste = ?"
+        );
+        reqPrepareSelect.setString(1, nom);
+        reqPrepareSelect.setInt(2, idListe);
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            Tache tache = new Tache(resultatRequete.getInt(1), resultatRequete.getString(2), resultatRequete.getInt(3), resultatRequete.getInt(4), resultatRequete.getInt(5));
+            return tache;
+        } else {
+            return null;
+        }
     }
 }

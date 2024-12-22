@@ -104,4 +104,18 @@ public class TypeRepository {
             return null;
         }
     }
+
+    public int getIdTypeByNom(String nom) throws SQLException {
+        Database base = new Database();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT id_type FROM type WHERE nom = ?"
+        );
+        reqPrepareSelect.setString(1, nom);
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            int idType = resultatRequete.getInt(1);
+            return idType;
+        } else {
+            return 0;
+        }
+    }
 }
