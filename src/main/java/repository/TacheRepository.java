@@ -1,9 +1,7 @@
 package repository;
 
 import database.Database;
-import model.Liste;
 import model.Tache;
-import model.Type;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

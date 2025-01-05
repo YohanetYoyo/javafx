@@ -1,7 +1,6 @@
 package appli.tache;
 
 import appli.StartApplication;
-import javafx.beans.property.SetProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -116,7 +115,30 @@ public class TachesController implements Initializable {
 
     @FXML
     protected void suppression(){
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer cette liste");
+        alert.setHeaderText("Êtes-vous sûr de vouloir supprimer cette liste ?");
+        alert.setContentText("Cette action est irréversible !");
+        alert.showAndWait().ifPresent(reponse -> {
+            if (reponse == ButtonType.OK){
+                TacheRepository tacheRepository = new TacheRepository();
+                boolean check = false;
+                try {
+                    check = tacheRepository.supprimer(this.tacheSel);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                if (check == true){
+                    this.erreur.setText("Tâche supprimée !");
+                    this.erreur.setVisible(true);
+                    this.supprimer.setDisable(true);
+                    StartApplication.changeScene("tache/tachesView", new TachesController(this.listeSel));
+                } else {
+                    this.erreur.setText("Erreur lors de la suppression.");
+                    this.erreur.setVisible(true);
+                }
+            }
+        });
     }
 
     @FXML
