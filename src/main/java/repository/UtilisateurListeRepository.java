@@ -44,6 +44,20 @@ public class UtilisateurListeRepository {
         }
     }
 
+    public boolean estProprietaire(int refUtilisateur, int refListe) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareSelect = base.getConnection().prepareStatement(
+                "SELECT COUNT(*) FROM utilisateur_liste WHERE ref_utilisateur = ? AND ref_liste = ?"
+        );
+        requetePrepareSelect.setInt(1 ,refUtilisateur);
+        requetePrepareSelect.setInt(2, refListe);
+        ResultSet resultatRequete = requetePrepareSelect.executeQuery();
+        if (resultatRequete.next()) {
+            return resultatRequete.getInt(1) > 0;
+        }
+        return false;
+    }
+
     public ArrayList<UtilisateurListe> getUtilisateurListes() throws SQLException {
         Database base = new Database();
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement(
