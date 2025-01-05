@@ -18,7 +18,7 @@
             <Font size="18.0" />
         </font>
    </Label>
-   <VBox alignment="CENTER" prefHeight="136.0" prefWidth="500.0">
+   <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
       <children>
          <Button onAction="#lesTypes" text="Les types">
             <VBox.margin>
@@ -26,8 +26,8 @@
             </VBox.margin>
          </Button>
          <Label text="Ensemble des listes créées" />
-         <TableView fx:id="tableauListe" onMouseClicked="#onListeSelection" prefHeight="44.0" prefWidth="500.0" />
-         <ButtonBar prefHeight="25.0" prefWidth="290.0">
+         <TableView fx:id="tableauListe" onMouseClicked="#onListeSelection" prefHeight="400.0" prefWidth="600.0" />
+         <ButtonBar prefHeight="290.0" prefWidth="290.0">
            <buttons>
                <Button onAction="#ajouterListe" text="Ajouter une liste" />
                <Button fx:id="modifier" onAction="#modifierListe" disable="true" text="Modifier liste" />

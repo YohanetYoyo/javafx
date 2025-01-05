@@ -44,8 +44,7 @@ public class AccueilController implements Initializable {
         this.welcomeText.setText("Bienvenue, "+UtilisateurConnecte.getInstance().getNom()+" "+UtilisateurConnecte.getInstance().getPrenom()+" !");
         String[][] colonnes = {
                 {"Id. liste", "idListe"},
-                {"Nom", "nom"},
-                {"Utilisateur", "refUtilisateur"}
+                {"Nom", "nom"}
         };
         UtilisateurListeRepository utilisateurListeRepository = new UtilisateurListeRepository();
         //Parcours de l'ensemble des colonnes
@@ -54,16 +53,6 @@ public class AccueilController implements Initializable {
             TableColumn<Liste,String> maColonne = new TableColumn<>(colonnes[i][0]);
             //Ligne permettant la liaison automatique de la cellule avec la propriété donnée
             maColonne.setCellValueFactory(new PropertyValueFactory<Liste,String>(colonnes[i][1]));
-            if (colonnes[i][1].equals("refUtilisateur")){
-                maColonne.setCellValueFactory(colonne -> {
-                    try {
-                        Utilisateur utilisateur = utilisateurListeRepository.getUtilisateurByRefListe(colonne.getValue().getIdListe());
-                        return new SimpleStringProperty(utilisateur.getNom()+" "+utilisateur.getPrenom());
-                    } catch (SQLException e){
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
             //Ajout de la colonne dans notre tableau
             tableauListe.getColumns().add(maColonne);
         }
