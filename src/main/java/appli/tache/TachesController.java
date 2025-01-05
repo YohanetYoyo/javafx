@@ -111,7 +111,7 @@ public class TachesController implements Initializable {
 
     @FXML
     protected void modifierTache(){
-
+        StartApplication.changeScene("tache/editerTacheView",new EditerTacheController(this.listeSel, this.tacheSel));
     }
 
     @FXML
@@ -121,7 +121,23 @@ public class TachesController implements Initializable {
 
     @FXML
     protected void onTacheSelection(MouseEvent event){
-
+        if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+            TablePosition cell = tableauTaches.getSelectionModel().getSelectedCells().get(0);
+            int indexLigne = cell.getRow();
+            TableColumn colonne = cell.getTableColumn();
+            Tache tacheSel = tableauTaches.getItems().get(indexLigne);
+            System.out.println("Double-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + tacheSel);
+            StartApplication.changeScene("tache/editerTacheView",new EditerTacheController(this.listeSel, this.tacheSel));
+        } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
+            TablePosition cell = tableauTaches.getSelectionModel().getSelectedCells().get(0);
+            int indexLigne = cell.getRow();
+            TableColumn colonne = cell.getTableColumn();
+            Tache tacheSel = tableauTaches.getItems().get(indexLigne);
+            this.tacheSel = tacheSel;
+            System.out.println("Simple-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + tacheSel);
+            this.modifier.setDisable(false);
+            this.supprimer.setDisable(false);
+        }
     }
 
     @FXML

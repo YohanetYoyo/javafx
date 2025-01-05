@@ -40,6 +40,7 @@ public class TacheRepository {
         requetePrepareEdit.setString(1, tache.getNom());
         requetePrepareEdit.setInt(2, tache.getEtat());
         requetePrepareEdit.setInt(3, tache.getRefType());
+        requetePrepareEdit.setInt(4, tache.getIdTache());
         requetePrepareEdit.executeUpdate();
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT nom FROM tache WHERE nom = ? AND ref_liste = ?"
         );
