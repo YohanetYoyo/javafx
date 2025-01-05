@@ -69,6 +69,23 @@ public class TacheRepository {
         }
     }
 
+    public boolean supprimerTachesListe(int idListe) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareDelete = base.getConnection().prepareStatement(
+                "DELETE FROM tache WHERE ref_liste = ?"
+        );
+        requetePrepareDelete.setInt(1, idListe);
+        requetePrepareDelete.executeUpdate();
+        PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement("SELECT * FROM tache WHERE ref_liste = ?");
+        reqPrepareSelect.setInt(1, idListe);
+        ResultSet resultatRequete = reqPrepareSelect.executeQuery();
+        if (!resultatRequete.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public ArrayList<Tache> getTachesByIdListe(int idListe) throws SQLException {
         Database base = new Database();
         PreparedStatement reqPrepareSelect = base.getConnection().prepareStatement(

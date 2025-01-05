@@ -15,6 +15,7 @@ import model.Liste;
 import model.Utilisateur;
 import model.UtilisateurConnecte;
 import repository.ListeRepository;
+import repository.TacheRepository;
 import repository.UtilisateurListeRepository;
 
 import java.io.IOException;
@@ -100,21 +101,39 @@ public class AccueilController implements Initializable {
         alert.setContentText("Cette action est irréversible !");
         alert.showAndWait().ifPresent(reponse -> {
             if (reponse == ButtonType.OK) {
-                ListeRepository listeRepository = new ListeRepository();
+                TacheRepository tacheRepository = new TacheRepository();
                 boolean check = false;
                 try {
-                    check = listeRepository.supprimer(this.listeSel);
+                    check = tacheRepository.supprimerTachesListe(listeSel.getIdListe());
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
                 if (check == true){
-                    this.erreur.setText("Liste supprimée !");
-                    this.erreur.setVisible(true);
-                    this.supprimer.setDisable(true);
+                    UtilisateurListeRepository utilisateurListeRepository = new UtilisateurListeRepository();
+                    boolean doubleCheck = false;
                     try {
-                        StartApplication.changeScene("accueil/accueilView.fxml");
-                    } catch (IOException e) {
+                        doubleCheck = utilisateurListeRepository.suppression(this.listeSel.getIdListe());
+                    } catch (SQLException e) {
                         throw new RuntimeException(e);
+                    }
+                    if (doubleCheck == true){
+                        ListeRepository listeRepository = new ListeRepository();
+                        boolean tripleCheck = false;
+                        try {
+                            tripleCheck = listeRepository.supprimer(this.listeSel);
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                        if (tripleCheck == true){
+                            this.erreur.setText("Liste supprimée !");
+                            this.erreur.setVisible(true);
+                            this.supprimer.setDisable(true);
+                            try {
+                                StartApplication.changeScene("accueil/accueilView.fxml");
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                     }
                 } else {
                     this.erreur.setText("Erreur lors de la suppression.");
