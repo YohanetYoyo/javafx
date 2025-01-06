@@ -44,7 +44,7 @@ public class UtilisateurListeRepository {
         }
     }
 
-    public boolean estProprietaire(int refUtilisateur, int refListe) throws SQLException {
+    public boolean estMembre(int refUtilisateur, int refListe) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareSelect = base.getConnection().prepareStatement(
                 "SELECT COUNT(*) FROM utilisateur_liste WHERE ref_utilisateur = ? AND ref_liste = ?"
@@ -56,6 +56,24 @@ public class UtilisateurListeRepository {
             return resultatRequete.getInt(1) > 0;
         }
         return false;
+    }
+
+    public boolean estProprietaire(int refUtilisateur, int refListe) throws SQLException {
+        Database base = new Database();
+        PreparedStatement requetePrepareSelect = base.getConnection().prepareStatement(
+                "SELECT u.id_utilisateur, u.nom, u.prenom FROM utilisateur_liste as ul INNER JOIN utilisateur as u ON ul.ref_utilisateur = u.id_utilisateur WHERE ul.ref_liste = ? LIMIT 1"
+        );
+        requetePrepareSelect.setInt(1 ,refListe);
+        ResultSet resultatRequete = requetePrepareSelect.executeQuery();
+        if (resultatRequete.next()){
+            if (refUtilisateur == resultatRequete.getInt(1)){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public ArrayList<UtilisateurListe> getUtilisateurListes() throws SQLException {

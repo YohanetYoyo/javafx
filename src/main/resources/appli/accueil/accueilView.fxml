@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" prefHeight="420.0" prefWidth="550.0" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.AccueilController">
+<VBox alignment="CENTER" fillWidth="false" prefHeight="420.0" prefWidth="550.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.AccueilController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -27,10 +27,11 @@
          </Button>
          <Label text="Ensemble des listes créées" />
          <TableView fx:id="tableauListe" onMouseClicked="#onListeSelection" prefHeight="400.0" prefWidth="600.0" />
+         <Label fx:id="info" text="Double-cliquez sur la liste pour accéder à ses tâches."/>
          <ButtonBar prefHeight="290.0" prefWidth="290.0">
            <buttons>
                <Button onAction="#ajouterListe" text="Ajouter une liste" />
-               <Button fx:id="modifier" onAction="#modifierListe" disable="true" text="Modifier liste" />
+               <Button fx:id="modifier" disable="true" onAction="#modifierListe" text="Modifier liste" />
                 <Button fx:id="supprimer" alignment="CENTER" contentDisplay="CENTER" disable="true" onAction="#suppression" text="Supprimer cette liste" />
            </buttons>
             <VBox.margin>
@@ -44,7 +45,7 @@
       <children>
          <ButtonBar buttonMinWidth="100.0" prefHeight="25.0" prefWidth="201.0">
            <buttons>
-               <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="206.0" onAction="#modifierInfos" text="Modifier mes informations" />
+               <Button mnemonicParsing="false" onAction="#modifierInfos" prefHeight="29.0" prefWidth="206.0" text="Modifier mes informations" />
            </buttons>
          </ButtonBar>
       </children>

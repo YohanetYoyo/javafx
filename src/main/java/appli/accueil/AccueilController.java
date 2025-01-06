@@ -35,6 +35,8 @@ public class AccueilController implements Initializable {
     @FXML
     private Label erreur;
     @FXML
+    private Label info;
+    @FXML
     private Label welcomeText;
 
     private Liste listeSel;
@@ -146,18 +148,18 @@ public class AccueilController implements Initializable {
     @FXML
     protected void onListeSelection(MouseEvent event) throws SQLException {
         UtilisateurListeRepository utilisateurListeRepository = new UtilisateurListeRepository();
-        boolean estProprietaire;
         if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
             TablePosition cell = tableauListe.getSelectionModel().getSelectedCells().get(0);
             int indexLigne = cell.getRow();
             TableColumn colonne = cell.getTableColumn();
             Liste listeSel = tableauListe.getItems().get(indexLigne);
             System.out.println("Double-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
-            estProprietaire = utilisateurListeRepository.estProprietaire(UtilisateurConnecte.getInstance().getIdUtilisateur(), listeSel.getIdListe());
-            if (estProprietaire == true){
+            boolean estMembre;
+            estMembre = utilisateurListeRepository.estMembre(UtilisateurConnecte.getInstance().getIdUtilisateur(), listeSel.getIdListe());
+            if (estMembre == true){
                 StartApplication.changeScene("tache/tachesView",new TachesController(this.listeSel));
             } else {
-                this.erreur.setText("Vous ne faites pas partie de la liste.");
+                this.erreur.setText("Vous ne faites pas partie de la liste ou n'êtes pas propriétaire.");
                 this.erreur.setVisible(true);
                 this.modifier.setDisable(true);
                 this.supprimer.setDisable(true);
@@ -169,13 +171,14 @@ public class AccueilController implements Initializable {
             Liste listeSel = tableauListe.getItems().get(indexLigne);
             this.listeSel = listeSel;
             System.out.println("Simple-clique ligne " + indexLigne + ", colonne " + colonne.getText() + ": " + listeSel);
+            boolean estProprietaire;
             estProprietaire = utilisateurListeRepository.estProprietaire(UtilisateurConnecte.getInstance().getIdUtilisateur(), listeSel.getIdListe());
             if (estProprietaire == true){
                 this.erreur.setVisible(false);
                 this.modifier.setDisable(false);
                 this.supprimer.setDisable(false);
             } else {
-                this.erreur.setText("Vous ne faites pas partie de la liste.");
+                this.erreur.setText("Vous ne faites pas partie de la liste ou n'êtes pas propriétaire.");
                 this.erreur.setVisible(true);
                 this.modifier.setDisable(true);
                 this.supprimer.setDisable(true);
