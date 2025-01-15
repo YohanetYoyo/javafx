@@ -11,7 +11,7 @@ public class UtilisateurListeRepository {
     public boolean ajout(UtilisateurListe utilisateurListe) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareInsert = base.getConnection().prepareStatement(
-                "INSERT INTO utilisateur_liste VALUES (?, ?)"
+                "INSERT INTO utilisateur_liste VALUES (?, ?, NOW())"
         );
         requetePrepareInsert.setInt(1, utilisateurListe.getRefUtilisateur());
         requetePrepareInsert.setInt(2, utilisateurListe.getRefListe());
@@ -80,7 +80,7 @@ public class UtilisateurListeRepository {
     public boolean estProprietaire(int refUtilisateur, int refListe) throws SQLException {
         Database base = new Database();
         PreparedStatement requetePrepareSelect = base.getConnection().prepareStatement(
-                "SELECT u.id_utilisateur, u.nom, u.prenom FROM utilisateur_liste as ul INNER JOIN utilisateur as u ON ul.ref_utilisateur = u.id_utilisateur WHERE ul.ref_liste = ? LIMIT 1"
+                "SELECT u.id_utilisateur, u.nom, u.prenom FROM utilisateur_liste as ul INNER JOIN utilisateur as u ON ul.ref_utilisateur = u.id_utilisateur WHERE ul.ref_liste = ? ORDER BY ul.timestamp ASC"
         );
         requetePrepareSelect.setInt(1 ,refListe);
         ResultSet resultatRequete = requetePrepareSelect.executeQuery();
