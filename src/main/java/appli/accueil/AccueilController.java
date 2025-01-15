@@ -159,7 +159,7 @@ public class AccueilController implements Initializable {
             if (estMembre == true){
                 StartApplication.changeScene("tache/tachesView",new TachesController(this.listeSel));
             } else {
-                this.erreur.setText("Vous ne faites pas partie de la liste ou n'êtes pas propriétaire.");
+                this.erreur.setText("Vous ne faites pas partie de la liste.");
                 this.erreur.setVisible(true);
                 this.modifier.setDisable(true);
                 this.supprimer.setDisable(true);
@@ -178,7 +178,7 @@ public class AccueilController implements Initializable {
                 this.modifier.setDisable(false);
                 this.supprimer.setDisable(false);
             } else {
-                this.erreur.setText("Vous ne faites pas partie de la liste ou n'êtes pas propriétaire.");
+                this.erreur.setText("Vous ne pouvez pas modifier les propriétés de la liste car vous n'êtes pas le propriétaire.");
                 this.erreur.setVisible(true);
                 this.modifier.setDisable(true);
                 this.supprimer.setDisable(true);

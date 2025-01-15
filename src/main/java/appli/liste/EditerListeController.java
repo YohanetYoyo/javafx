@@ -79,6 +79,11 @@ public class EditerListeController implements Initializable {
     }
 
     @FXML
+    protected void membres() throws IOException {
+        StartApplication.changeScene("liste/membresView", new MembresController(this.listeSel));
+    }
+
+    @FXML
     protected void retour() throws IOException {
         StartApplication.changeScene("accueil/accueilView.fxml");
     }
